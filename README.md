@@ -1,4 +1,4 @@
-# 📱 Dízimo Digital - Aplicação Pública
+# 📱 Checkout Una - Aplicação Pública
 
 Interface pública para fiéis realizarem dízimos e ofertas.
 
