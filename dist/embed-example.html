@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embeds Diretos - Módulos Dízimo e Oferta</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #374151;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            color: #4b5563;
+            margin-top: 30px;
+        }
+        
+        .embed-container {
+            width: 480px;
+            margin: 20px auto;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .embed-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.25);
+        }
+        
+        .embed-container iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        /* Grid responsivo para os módulos */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 50px 0;
+            align-items: start;
+        }
+        
+        .modules-grid > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 10px;
+        }
+        
+        .modules-grid h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #374151;
+            font-size: 1.3rem;
+        }
+        
+        .url-info {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            word-break: break-all;
+            max-width: 100%;
+        }
+        
+        .success {
+            background: #d1fae5;
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #065f46;
+        }
+        
+        .code-block {
+            background: #1f2937;
+            color: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .embed-container {
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .embed-container iframe {
+                height: 700px;
+            }
+            
+            .url-info {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Embeds Diretos - Módulos Dízimo e Oferta</h1>
+        
+        <div class="success">
+            <strong>✅ Modo Embed Ativo!</strong> Agora temos apenas os dois módulos principais (Dízimo e Oferta) 
+            lado a lado no modo embed, com <code>&embed=true</code> para remover o botão voltar. 
+            O servidor está rodando na porta 8080.
+        </div>
+
+        <h2>🎯 Módulos Disponíveis</h2>
+        
+        <div class="modules-grid">
+            <div>
+                <h3>1. Módulo Dízimo - Modo Embed</h3>
+                <div class="embed-container">
+                    <iframe
+                        src="http://localhost:8080/dizimo?scope=diocese&parishId=1&embed=true#/dizimo?parishId=1"
+                        title="Módulo Dízimo - Modo Embed"
+                        allow="payment"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox">
+                    </iframe>
+                </div>
+                
+                <div class="url-info">
+                    <strong>URL para Embed:</strong><br>
+                    <code>http://localhost:8080/dizimo?scope=diocese&parishId=1&embed=true#/dizimo?parishId=1</code>
+                </div>
+            </div>
+            
+            <div>
+                <h3>2. Módulo Oferta - Modo Embed</h3>
+                <div class="embed-container">
+                    <iframe
+                        src="http://localhost:8080/oferta?scope=diocese&parishId=1&embed=true#/oferta?parishId=1"
+                        title="Módulo Oferta - Modo Embed"
+                        allow="payment"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox">
+                    </iframe>
+                </div>
+                
+                <div class="url-info">
+                    <strong>URL para Embed:</strong><br>
+                    <code>http://localhost:8080/oferta?scope=diocese&parishId=1&embed=true#/oferta?parishId=1</code>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

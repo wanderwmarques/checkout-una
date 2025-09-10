@@ -1,0 +1,147 @@
+/* Correções para problemas de desfoque em dispositivos móveis e tablets */
+
+/* Melhorar nitidez de texto em todos os dispositivos */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevenir zoom automático em inputs em iOS */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  font-size: 16px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Melhorar renderização de imagens e ícones */
+img, svg {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Prevenir problemas de escala em dispositivos móveis */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Melhorar foco e contraste */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Otimizações específicas para mobile */
+@media screen and (max-width: 768px) {
+  /* Melhorar espaçamento e tamanhos */
+  .p-4 {
+    padding: 1.25rem !important;
+  }
+  
+  .px-4 {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  
+  /* Melhorar tamanho dos textos */
+  .text-base {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+  }
+  
+  .text-sm {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+  }
+  
+  .text-xs {
+    font-size: 0.9375rem !important;
+    line-height: 1.375rem !important;
+  }
+  
+  /* Melhorar contraste dos fundos */
+  .bg-white\/95 {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+  
+  .bg-slate-800\/95 {
+    background-color: rgba(30, 41, 59, 0.98) !important;
+  }
+}
+
+/* Otimizações específicas para tablets */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Melhorar espaçamento */
+  .p-5 {
+    padding: 1.5rem !important;
+  }
+  
+  .px-6 {
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+  }
+  
+  /* Melhorar tamanho dos textos */
+  .text-lg {
+    font-size: 1.25rem !important;
+    line-height: 1.875rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1.375rem !important;
+    line-height: 2rem !important;
+  }
+  
+  /* Melhorar contraste dos fundos */
+  .bg-white\/95 {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+  
+  .bg-slate-800\/95 {
+    background-color: rgba(30, 41, 59, 0.98) !important;
+  }
+}
+
+/* Melhorar performance de animações em dispositivos móveis */
+@media (prefers-reduced-motion: no-preference) {
+  @media screen and (max-width: 1024px) {
+    .transition-all {
+      transition-duration: 200ms !important;
+    }
+    
+    .duration-300 {
+      transition-duration: 200ms !important;
+    }
+  }
+}
+
+/* Melhorar contraste e legibilidade geral */
+@media screen and (max-width: 1024px) {
+  /* Aumentar peso das fontes para melhor legibilidade */
+  .font-semibold {
+    font-weight: 600 !important;
+  }
+  
+  .font-bold {
+    font-weight: 700 !important;
+  }
+  
+  /* Melhorar sombras para melhor contraste */
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+}
+

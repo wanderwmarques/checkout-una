@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components Funcionais</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .demo-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="demo-section">
+            <h1>🚀 Web Components Funcionais</h1>
+            <p>Estes Web Components funcionam perfeitamente em qualquer site!</p>
+            
+            <div class="code-block">
+&lt;!-- Copie e cole este código em qualquer site --&gt;
+&lt;script&gt;
+// Web Component de Dízimo
+class DizimoCheckoutElement extends HTMLElement {
+  connectedCallback() {
+    const checkoutId = this.getAttribute('checkout-id') || 'demo-123';
+    const amount = this.getAttribute('amount') || '100.00';
+    const theme = this.getAttribute('theme') || 'light';
+    
+    this.innerHTML = `
+      &lt;div style="width: 100%; min-height: 400px; border: 2px solid #e5e7eb; border-radius: 8px; background: white; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;"&gt;
+        &lt;div style="text-align: center; margin-bottom: 30px;"&gt;
+          &lt;div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;"&gt;
+            💰
+          &lt;/div&gt;
+          &lt;h2 style="margin: 0 0 10px 0; color: #1f2937;"&gt;Dízimo Digital&lt;/h2&gt;
+          &lt;p style="margin: 0; color: #6b7280;"&gt;Faça sua contribuição de forma rápida e segura&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="max-width: 400px; margin: 0 auto;"&gt;
+          &lt;div style="margin-bottom: 20px;"&gt;
+            &lt;label style="display: block; margin-bottom: 8px; font-weight: 600; color: #374151;"&gt;Valor do Dízimo&lt;/label&gt;
+            &lt;div style="position: relative;"&gt;
+              &lt;span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #6b7280; font-weight: 600;"&gt;R$&lt;/span&gt;
+              &lt;input type="text" value="${amount}" style="width: 100%; padding: 12px 12px 12px 40px; border: 2px solid #d1d5db; border-radius: 8px; font-size: 18px; font-weight: 600; background: #ffffff; color: #1f2937;" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div style="margin-bottom: 20px;"&gt;
+            &lt;label style="display: block; margin-bottom: 8px; font-weight: 600; color: #374151;"&gt;CPF do Dizimista&lt;/label&gt;
+            &lt;input type="text" placeholder="000.000.000-00" style="width: 100%; padding: 12px; border: 2px solid #d1d5db; border-radius: 8px; font-size: 16px; background: #ffffff; color: #1f2937;" /&gt;
+          &lt;/div&gt;
+          &lt;div style="margin-bottom: 30px;"&gt;
+            &lt;label style="display: block; margin-bottom: 12px; font-weight: 600; color: #374151;"&gt;Forma de Pagamento&lt;/label&gt;
+            &lt;div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;"&gt;
+              &lt;button style="padding: 12px; border: 2px solid #10b981; background: #10b981; color: white; border-radius: 8px; font-weight: 600; cursor: pointer;" onclick="this.style.background='#10b981'; this.nextElementSibling.style.background='transparent'; this.nextElementSibling.style.color='#6b7280';"&gt;PIX&lt;/button&gt;
+              &lt;button style="padding: 12px; border: 2px solid #d1d5db; background: transparent; color: #6b7280; border-radius: 8px; font-weight: 600; cursor: pointer;" onclick="this.style.background='#10b981'; this.style.color='white'; this.previousElementSibling.style.background='transparent'; this.previousElementSibling.style.color='#6b7280';"&gt;Crédito&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;button style="width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" onclick="this.textContent='Processando...'; this.disabled=true; setTimeout(() => { this.textContent='Pagamento Realizado!'; this.style.background='#10b981'; setTimeout(() => { this.textContent='Realizar Dízimo'; this.disabled=false; this.style.background='linear-gradient(135deg, #10b981, #059669)'; }, 3000); }, 2000);"&gt;Realizar Dízimo&lt;/button&gt;
+          &lt;div style="margin-top: 20px; padding: 16px; background: #f3f4f6; border-radius: 8px; text-align: center;"&gt;
+            &lt;p style="margin: 0; font-size: 14px; color: #6b7280;"&gt;&lt;strong&gt;Checkout ID:&lt;/strong&gt; ${checkoutId}&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    `;
+  }
+}
+
+// Registrar o Web Component
+if (!customElements.get('dizimo-checkout')) {
+  customElements.define('dizimo-checkout', DizimoCheckoutElement);
+}
+&lt;/script&gt;
+
+&lt;!-- Usar o Web Component --&gt;
+&lt;dizimo-checkout
+  checkout-id="dizimo-1234567890"
+  amount="100.00"
+  theme="light"&gt;
+&lt;/dizimo-checkout&gt;
+            </div>
+
+            <div style="border: 2px dashed #10b981; padding: 20px; border-radius: 8px; background: #f8f9fa; margin-top: 20px;">
+                <dizimo-checkout
+                    checkout-id="dizimo-demo-123"
+                    amount="100.00"
+                    theme="light">
+                </dizimo-checkout>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎁 Checkout de Oferta</h2>
+            <p>Web Component para ofertas:</p>
+            
+            <div style="border: 2px dashed #7c3aed; padding: 20px; border-radius: 8px; background: #f8f9fa; margin-top: 20px;">
+                <oferta-checkout
+                    checkout-id="oferta-demo-456"
+                    amount="50.00"
+                    theme="light">
+                </oferta-checkout>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Web Component de Dízimo
+        class DizimoCheckoutElement extends HTMLElement {
+            connectedCallback() {
+                const checkoutId = this.getAttribute('checkout-id') || 'demo-123';
+                const amount = this.getAttribute('amount') || '100.00';
+                const theme = this.getAttribute('theme') || 'light';
+                
+                this.innerHTML = `
+                    <div style="width: 100%; min-height: 400px; border: 2px solid #e5e7eb; border-radius: 8px; background: white; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                                💰
+                            </div>
+                            <h2 style="margin: 0 0 10px 0; color: #1f2937;">
+                                Dízimo Digital
+                            </h2>
+                            <p style="margin: 0; color: #6b7280;">
+                                Faça sua contribuição de forma rápida e segura
+                            </p>
+                        </div>
+
+                        <div style="max-width: 400px; margin: 0 auto;">
+                            <!-- Campo de Valor -->
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #374151;">
+                                    Valor do Dízimo
+                                </label>
+                                <div style="position: relative;">
+                                    <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #6b7280; font-weight: 600;">
+                                        R$
+                                    </span>
+                                    <input 
+                                        type="text" 
+                                        value="${amount}" 
+                                        style="width: 100%; padding: 12px 12px 12px 40px; border: 2px solid #d1d5db; border-radius: 8px; font-size: 18px; font-weight: 600; background: #ffffff; color: #1f2937;"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Campo de CPF -->
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #374151;">
+                                    CPF do Dizimista
+                                </label>
+                                <input 
+                                    type="text" 
+                                    placeholder="000.000.000-00" 
+                                    style="width: 100%; padding: 12px; border: 2px solid #d1d5db; border-radius: 8px; font-size: 16px; background: #ffffff; color: #1f2937;"
+                                />
+                            </div>
+
+                            <!-- Forma de Pagamento -->
+                            <div style="margin-bottom: 30px;">
+                                <label style="display: block; margin-bottom: 12px; font-weight: 600; color: #374151;">
+                                    Forma de Pagamento
+                                </label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                    <button 
+                                        style="padding: 12px; border: 2px solid #10b981; background: #10b981; color: white; border-radius: 8px; font-weight: 600; cursor: pointer;"
+                                        onclick="this.style.background='#10b981'; this.nextElementSibling.style.background='transparent'; this.nextElementSibling.style.color='#6b7280';"
+                                    >
+                                        PIX
+                                    </button>
+                                    <button 
+                                        style="padding: 12px; border: 2px solid #d1d5db; background: transparent; color: #6b7280; border-radius: 8px; font-weight: 600; cursor: pointer;"
+                                        onclick="this.style.background='#10b981'; this.style.color='white'; this.previousElementSibling.style.background='transparent'; this.previousElementSibling.style.color='#6b7280';"
+                                    >
+                                        Crédito
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Botão de Pagamento -->
+                            <button 
+                                style="width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+                                onclick="this.textContent='Processando...'; this.disabled=true; setTimeout(() => { this.textContent='Pagamento Realizado!'; this.style.background='#10b981'; setTimeout(() => { this.textContent='Realizar Dízimo'; this.disabled=false; this.style.background='linear-gradient(135deg, #10b981, #059669)'; }, 3000); }, 2000);"
+                            >
+                                Realizar Dízimo
+                            </button>
+
+                            <!-- Informações -->
+                            <div style="margin-top: 20px; padding: 16px; background: #f3f4f6; border-radius: 8px; text-align: center;">
+                                <p style="margin: 0; font-size: 14px; color: #6b7280;">
+                                    <strong>Checkout ID:</strong> ${checkoutId}
+                                </p>
+                                <p style="margin: 5px 0 0 0; font-size: 12px; color: #9ca3af;">
+                                    Web Component funcionando perfeitamente!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Web Component de Oferta
+        class OfertaCheckoutElement extends HTMLElement {
+            connectedCallback() {
+                const checkoutId = this.getAttribute('checkout-id') || 'demo-456';
+                const amount = this.getAttribute('amount') || '50.00';
+                const theme = this.getAttribute('theme') || 'light';
+                
+                this.innerHTML = `
+                    <div style="width: 100%; min-height: 400px; border: 2px solid #e5e7eb; border-radius: 8px; background: white; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #7c3aed, #a855f7); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                                🎁
+                            </div>
+                            <h2 style="margin: 0 0 10px 0; color: #1f2937;">
+                                Oferta Especial
+                            </h2>
+                            <p style="margin: 0; color: #6b7280;">
+                                Contribua com nossa missão
+                            </p>
+                        </div>
+
+                        <div style="max-width: 400px; margin: 0 auto;">
+                            <!-- Campo de Valor -->
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #374151;">
+                                    Valor da Oferta
+                                </label>
+                                <div style="position: relative;">
+                                    <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #6b7280; font-weight: 600;">
+                                        R$
+                                    </span>
+                                    <input 
+                                        type="text" 
+                                        value="${amount}" 
+                                        style="width: 100%; padding: 12px 12px 12px 40px; border: 2px solid #d1d5db; border-radius: 8px; font-size: 18px; font-weight: 600; background: #ffffff; color: #1f2937;"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Campo de CPF -->
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #374151;">
+                                    CPF do Dizimista
+                                    <span style="font-weight: 400; color: #9ca3af;">(Opcional)</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    placeholder="000.000.000-00" 
+                                    style="width: 100%; padding: 12px; border: 2px solid #d1d5db; border-radius: 8px; font-size: 16px; background: #ffffff; color: #1f2937;"
+                                />
+                            </div>
+
+                            <!-- Forma de Pagamento -->
+                            <div style="margin-bottom: 30px;">
+                                <label style="display: block; margin-bottom: 12px; font-weight: 600; color: #374151;">
+                                    Forma de Pagamento
+                                </label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                    <button 
+                                        style="padding: 12px; border: 2px solid #7c3aed; background: #7c3aed; color: white; border-radius: 8px; font-weight: 600; cursor: pointer;"
+                                        onclick="this.style.background='#7c3aed'; this.nextElementSibling.style.background='transparent'; this.nextElementSibling.style.color='#6b7280';"
+                                    >
+                                        PIX
+                                    </button>
+                                    <button 
+                                        style="padding: 12px; border: 2px solid #d1d5db; background: transparent; color: #6b7280; border-radius: 8px; font-weight: 600; cursor: pointer;"
+                                        onclick="this.style.background='#7c3aed'; this.style.color='white'; this.previousElementSibling.style.background='transparent'; this.previousElementSibling.style.color='#6b7280';"
+                                    >
+                                        Crédito
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Botão de Pagamento -->
+                            <button 
+                                style="width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+                                onclick="this.textContent='Processando...'; this.disabled=true; setTimeout(() => { this.textContent='Oferta Realizada!'; this.style.background='#10b981'; setTimeout(() => { this.textContent='Realizar Oferta'; this.disabled=false; this.style.background='linear-gradient(135deg, #7c3aed, #a855f7)'; }, 3000); }, 2000);"
+                            >
+                                Realizar Oferta
+                            </button>
+
+                            <!-- Informações -->
+                            <div style="margin-top: 20px; padding: 16px; background: #f3f4f6; border-radius: 8px; text-align: center;">
+                                <p style="margin: 0; font-size: 14px; color: #6b7280;">
+                                    <strong>Checkout ID:</strong> ${checkoutId}
+                                </p>
+                                <p style="margin: 5px 0 0 0; font-size: 12px; color: #9ca3af;">
+                                    Web Component funcionando perfeitamente!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Registrar os Web Components
+        if (!customElements.get('dizimo-checkout')) {
+            customElements.define('dizimo-checkout', DizimoCheckoutElement);
+        }
+        if (!customElements.get('oferta-checkout')) {
+            customElements.define('oferta-checkout', OfertaCheckoutElement);
+        }
+
+        console.log('✅ Web Components registrados com sucesso!');
+    </script>
+</body>
+</html>
